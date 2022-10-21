@@ -16,7 +16,7 @@ const Home = () => {
         <HomePart1 />
       </div>
       <div
-        className="h-fit w-screen content-div pt-32 pb-12  px-10"
+        className="h-fit w-screen content-div clip sm:clip pt-32 pb-12  px-10"
         style={{ backgroundImage: `url(/assets/photo.svg)` }}
       >
         <HomePart2 />
@@ -27,7 +27,7 @@ const Home = () => {
       <div className="relative h-[800px] max-w-full pt-20 sm:relative flex flex-col items-center">
         <HomePart4 />
       </div>
-      <div className="mt-20 md:px-32 px-6 flex mb-24 sm:flex-row ">
+      <div className="mt-20 md:px-32 px-6 flex flex-col mb-24 sm:flex-row  gap-6">
         <HomePart5 />
       </div>
       <div

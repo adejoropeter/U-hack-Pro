@@ -15,10 +15,13 @@ html{
    background: rgba(2,0,36,0.8);
     
     /* background: linear-gradient(360deg, rgba(36, 8, 22, 0.39) 4.52%, rgba(78, 72, 229, 0.11) 91.43%); */
-    clip-path: polygon(39% 5%, 54% 2%, 76% 0, 100% 0, 100% 100%, 50% 100%, 32% 100%, 0 100%, 0 16%, 21% 9%);
-
+    
+   }
+   
+   .clip{
+      /* clip-path: polygon(39% 5%, 54% 2%, 76% 0, 100% 0, 100% 100%, 50% 100%, 32% 100%, 0 100%, 0 16%, 21% 9%); */
+      
 }
-
 .content-padding > img:not(:first-child){
   padding-inline: 10px;
 }
@@ -39,9 +42,6 @@ html{
 }
 @media screen and (max-width:480px){
    .content-div{
-    /* clip-path: polygon(39% 5%, 54% 2%, 76% 0, 100% 0, 100% 100%, 50% 100%, 32% 100%, 0 100%, 0 16%, 21% 9%); */
-    /* clip-path: polygon(48% 3%, 100% 0, 100% 60%, 100% 100%, 0 100%, 0 18%, 22% 8%); */
-    /* clip-path: polygon(47% 5%, 100% 0, 100% 60%, 100% 100%, 0 100%, 0 0, 21% 9%); */
     clip-path: none;
    }
 }

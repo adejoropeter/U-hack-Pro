@@ -27,7 +27,7 @@ const HomePart4 = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <CustomButton bg="transparent" isBool={true} brCol="#1B1A42" brWid="1px">View NGOs</CustomButton>
+          <CustomButton width="" pad="0px 10px" bg="transparent" isBool={true} brCol="#1B1A42" brWid="1px">View NGOs</CustomButton>
         </div>
       </div>
     </>

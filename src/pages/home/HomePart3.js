@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 const HomePart3 = () => {
   return (
     <div>
-      <div className="flex w-fit mx-auto  flex-col pl-10 mb-10">
+      <div className="flex w-fit mx-auto  flex-col sm:pl-10 mb-10">
         <h2 className="text-4xl font-normal mb-6 text-[#1B1A42] text-center">
           Lend a helping hand
         </h2>
@@ -27,7 +27,7 @@ const HomePart3 = () => {
             <div className="w-[90%] h-2 rounded-full mb-4 bg-[#EEEEF6] overflow-hidden">
               <p className="h-full w-[85%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
-            <CustomButton bg="#1B1A42" text="white" spacing="auto"  isBool={true}>
+            <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"  isBool={true}>
               View Donations
             </CustomButton>
           </div>
@@ -43,7 +43,7 @@ const HomePart3 = () => {
             <div className="w-[90%] h-2 rounded-full mb-4 bg-[#EEEEF6] overflow-hidden">
               <p className="h-full w-[50%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
-            <CustomButton bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
+            <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
               View Donations
             </CustomButton>
           </div>
@@ -60,7 +60,7 @@ const HomePart3 = () => {
               <p className="h-full w-[60%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
             
-              <CustomButton bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
+              <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
               View Donations
             </CustomButton>
            
@@ -70,7 +70,7 @@ const HomePart3 = () => {
         
       </div><div className="mt-10">
         
-      <CustomButton bg="transparent" isBool={true} text="#1B1A42" brWid="1px" spacing="auto" brCol="#1B1A42" >View All NGOs</CustomButton>
+      <CustomButton width="" pad="0px 20px" bg="transparent" isBool={true} text="#1B1A42" brWid="1px" spacing="auto" brCol="#1B1A42" >View All NGOs</CustomButton>
          </div>
     </div>
   );

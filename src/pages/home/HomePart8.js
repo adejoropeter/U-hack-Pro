@@ -1,9 +1,9 @@
 import React from "react";
 import CustomButton from "../../components/CustomButton";
-
+import { useQuery } from "@tanstack/react-query";
 const HomePart8 = () => {
   return (
-    <div className="w-screen flex gap-4 flex-col  md:flex-row md:items-center px-10">
+    <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
       <div className="w-full md:w-1/2 ">
         <img src="/assets/donation-box.png" />
       </div>
@@ -57,7 +57,7 @@ const HomePart8 = () => {
               // ref={fiName}
             />
           </div>
-          <CustomButton isBool={true} bg="#1B1A42" text="white">Volunteer</CustomButton>
+          <CustomButton  pad="0 15px" isBool={true} bg="#1B1A42" text="white">Volunteer</CustomButton>
         </form>
       </div>
     </div>

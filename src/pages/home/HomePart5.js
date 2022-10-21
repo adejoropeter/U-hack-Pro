@@ -1,6 +1,7 @@
 import React from "react";
 import {CiUser} from 'react-icons/ci'
 import {BsClipboardCheck} from 'react-icons/bs'
+import CustomButton from "../../components/CustomButton";
 const HomePart5 = () => {
   return (
     <>
@@ -19,8 +20,11 @@ const HomePart5 = () => {
           <img src="/assets/PandG.png" alt="A White Peacock" />
           <img src="/assets/Eye.png" alt="A White Peacock" />
         </div>
+        <div className="sm:hidden mt-10 mb-10">
+          <CustomButton width="" isBool={true} bg="transparent" pad={"10px"} brCol="grey" brWid="2px">Volunteer Now</CustomButton>
+        </div>
       </div>
-      <div className="w-[300px] h-32">
+      <div className="sm:w-[300px] h-32">
         <div className="border-b-[1px] border-b-[#1B1A42] flex items-center mb-4 py-3">
           <div className="w-fit h-fit rounded-full bg-[#0090FF] mr-4 p-[4px]">
             <img className="object-cover w-7 h-7" src="/assets/barcode.png" />
@@ -35,7 +39,7 @@ const HomePart5 = () => {
           <p className="text-md font-medium mr-4">102</p>
           <p className="text-sm">Registered NGOs</p>
         </div>
-        <div className="border-b-[1px] border-b-[#1B1A42] flex items-center py-3">
+        <div className="  flex items-center py-3">
           <div className="w-fit h-fit rounded-full bg-[#15E88E] mr-4 p-[4px]">
             <BsClipboardCheck size="24px" className="text-white"/>
           </div>

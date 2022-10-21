@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex justify-between flex-1">
+          <div className="flex justify-between flex-1 flex-wrap sm:flex-nowrap">
             <div className="flex flex-col">
               <h1 className="text-sm sm:text-lg text-[#1B1A42] font-semibold ">
                 Pages
@@ -61,8 +61,8 @@ const Footer = () => {
               </ul>
             
             </div>
-            <div className="flex flex-col ">
-              <h1 className="text-sm sm:text-lg text-[#1B1A42] font-semibold mb-6">
+            <div className="flex flex-col pb-10">
+              <h1 className="text-sm mt-6 sm:mt-0 sm:text-lg text-[#1B1A42] font-semibold mb-6">
                 Contact
               </h1>
               <div className="flex items-center">

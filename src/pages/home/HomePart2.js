@@ -41,7 +41,7 @@ const HomePart2 = () => {
         />
       </div>
       <div className="mt-10">
-         <CustomButton bg="transparent" text="white" spacing="auto" brCol="white" brWid="2px" isBool={true}>
+         <CustomButton bg="transparent" width="fit" pad="10px 40px" text="white" spacing="auto" brCol="white" brWid="2px" isBool={true}>
         Learn More
       </CustomButton>
       </div>

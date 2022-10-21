@@ -2,10 +2,10 @@ import React from "react";
 
 const CompanyPart1 = () => {
   return (
-    <div className="px-20 flex gap-10 sm:gap-2 py-10 justify-between flex-col sm:flex-row items-center">
+    <div className="px-10 sm:px-20 flex gap-10 sm:gap-2 py-10 justify-between flex-col sm:flex-row items-center">
       <div className="flex flex-col">
         <p className="mb-6">About us</p>
-        <h1 className="text-[#1B1A42] text-5xl max-w-sm mb-4 font-normal">
+        <h1 className="text-[#1B1A42] text-2xl sm:text-5xl max-w-sm mb-4 font-normal">
           <span className="text-[#ABAAD0]">Charity</span> is an act of love.
           Spread love today
         </h1>

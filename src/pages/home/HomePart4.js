@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/CustomButton";
 
 const HomePart4 = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("ngo/all");
+    document.documentElement.scrollTop = 0;
+    
+  };
   return (
     <>
       <div className="">
@@ -27,7 +34,10 @@ const HomePart4 = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <div onClick={handleClick}>
           <CustomButton width="" pad="0px 10px" bg="transparent" isBool={true} brCol="#1B1A42" brWid="1px">View NGOs</CustomButton>
+
+          </div>
         </div>
       </div>
     </>

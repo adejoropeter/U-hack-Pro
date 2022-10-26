@@ -10,7 +10,7 @@ const Card = ({ list, image, text, bg, text2, text3 }) => {
   // const { focus } = ItemContext();
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/ngo/${list.route}`);
+    navigate(`${list.route}`);
     // console.log(focus)
     // focus.current.onfocus()
     // window.scroll(0,0)

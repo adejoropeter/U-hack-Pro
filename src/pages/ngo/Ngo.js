@@ -28,7 +28,7 @@ const Ngo = () => {
           className={({ isActive }) => {
             return isActive
               ? "text-white bg-[#1B1A42] duration-500 p-2 md:p-2 font-normal rounded-full md:text-sm"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              : "text-[rgba(0,0,0,0.5)]  md:p-2 ";
           }}
         >
           All({all?.length})
@@ -38,7 +38,7 @@ const Ngo = () => {
           className={({ isActive }) => {
             return isActive
               ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              : "text-[rgba(0,0,0,0.5)] md:p-2 ";
           }}
         >
           Education({edu?.length})
@@ -48,7 +48,7 @@ const Ngo = () => {
           className={({ isActive }) => {
             return isActive
               ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              : "text-[rgba(0,0,0,0.5)]  md:p-2 ";
           }}
         >
           Health Center({health?.length})
@@ -58,7 +58,7 @@ const Ngo = () => {
           className={({ isActive }) => {
             return isActive
               ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              : "text-[rgba(0,0,0,0.5)]  md:p-2 ";
           }}
         >
           Agricultural Sector({agri?.length})

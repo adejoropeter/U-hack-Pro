@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const HomePart3 = () => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("ngo/donate");
+    navigate("ngo/all");
     document.documentElement.scrollTop = 0;
     
   };
@@ -22,11 +22,11 @@ const HomePart3 = () => {
           only create verified donation requests.
         </p>
       </div>
-      <div className="grid place-items-center grid-cols-1 sm:flex  sm:flex-wrap sm:justify-center sm:gap-8  md:grid-cols-3 lg:grid-cols-3 p-4 gap-2">
-        <div className="w-[354px] h-[400px] sm:w-[250px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+      <div className="flex flex-col sm:flex-row  gap-6 items-center sm:justify-between p-4 ">
+        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/happy-children.png"
-            className="w-full h-42 md:h-56 object-cover"
+            className="w-full h-42 md:h-56 sm:h-full object-cover"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">Feed The Kids NG</h2>
@@ -48,10 +48,10 @@ const HomePart3 = () => {
             </div>
           </div>
         </div>
-        <div className="w-[354px] h-[400px] sm:w-[250px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/rounded-hands.png"
-            className="w-full h-42 object-cover md:h-56"
+            className="w-full h-42 object-cover sm:h-full md:h-56"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">Spreading Love NG</h2>
@@ -73,10 +73,10 @@ const HomePart3 = () => {
             </div>
           </div>
         </div>
-        <div className="w-[354px] h-[400px] sm:w-[250px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/flooded-buildings.png"
-            className="w-full h-42 object-cover md:h-56"
+            className="w-full h-42 object-cover sm:h-full md:h-56"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">

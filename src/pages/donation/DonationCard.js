@@ -16,7 +16,7 @@ const DonationCard = ({ detail }) => {
 
   };
   return (
-    <div className="flex overflow-scroll  w-full h-fit  gap-4">
+    <div className="flex   h-fit  gap-4">
       <div className="flex-shrink-0 w-64 lg:w-80 border h-fit bg-white rounded-xl overflow-hidden scrollbar-hide">
         <img
           src="/assets/happy-children.png"

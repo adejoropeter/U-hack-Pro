@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchedPage = () => {
   return (
-    <div>SearchedPage</div>
+    <div>Waiting For design...</div>
   )
 }
 

@@ -1,8 +1,15 @@
 import React from "react";
 import CustomButton from "../../components/CustomButton";
 import Card from "../../components/Card";
+import { useNavigate } from "react-router-dom";
 
 const HomePart3 = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("ngo/donate");
+    document.documentElement.scrollTop = 0;
+    
+  };
   return (
     <div>
       <div className="flex w-fit mx-auto  flex-col sm:pl-10 mb-10">
@@ -27,9 +34,18 @@ const HomePart3 = () => {
             <div className="w-[90%] h-2 rounded-full mb-4 bg-[#EEEEF6] overflow-hidden">
               <p className="h-full w-[85%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
-            <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"  isBool={true}>
-              View Donations
-            </CustomButton>
+            <div onClick={handleClick}>
+              <CustomButton
+                width="100%"
+                pad="10px 0px"
+                bg="#1B1A42"
+                text="white"
+                spacing="auto"
+                isBool={true}
+              >
+                View Donations
+              </CustomButton>
+            </div>
           </div>
         </div>
         <div className="w-[354px] h-[400px] sm:w-[250px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
@@ -43,9 +59,18 @@ const HomePart3 = () => {
             <div className="w-[90%] h-2 rounded-full mb-4 bg-[#EEEEF6] overflow-hidden">
               <p className="h-full w-[50%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
-            <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
-              View Donations
-            </CustomButton>
+            <div onClick={handleClick}>
+              <CustomButton
+                width="100%"
+                pad="10px 0px"
+                bg="#1B1A42"
+                text="white"
+                spacing="auto"
+                isBool={true}
+              >
+                View Donations
+              </CustomButton>
+            </div>
           </div>
         </div>
         <div className="w-[354px] h-[400px] sm:w-[250px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
@@ -54,24 +79,43 @@ const HomePart3 = () => {
             className="w-full h-42 object-cover md:h-56"
           />
           <div className="w-full p-6">
-            <h2 className="text-[#1B1A42] mb-4">FBreaking the Shackles of Poverty NG</h2>
+            <h2 className="text-[#1B1A42] mb-4">
+              FBreaking the Shackles of Poverty NG
+            </h2>
             <h3 className="mb-4">N260,000 of N300,000</h3>
             <div className="w-[80%] h-2 rounded-full mb-4 bg-[#EEEEF6] overflow-hidden">
               <p className="h-full w-[60%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
-            
-              <CustomButton width="100%" pad="10px 0px" bg="#1B1A42" text="white" spacing="auto"   isBool={true}>
+            <div onClick={handleClick}>
+
+            <CustomButton
+              width="100%"
+              pad="10px 0px"
+              bg="#1B1A42"
+              text="white"
+              spacing="auto"
+              isBool={true}
+              >
               View Donations
             </CustomButton>
-           
-            
+              </div>
           </div>
         </div>
-        
-      </div><div className="mt-10">
-        
-      <CustomButton width="" pad="0px 20px" bg="transparent" isBool={true} text="#1B1A42" brWid="1px" spacing="auto" brCol="#1B1A42" >View All NGOs</CustomButton>
-         </div>
+      </div>
+      <div className="mt-10" onClick={handleClick}>
+        <CustomButton
+          width=""
+          pad="0px 20px"
+          bg="transparent"
+          isBool={true}
+          text="#1B1A42"
+          brWid="1px"
+          spacing="auto"
+          brCol="#1B1A42"
+        >
+          View All NGOs
+        </CustomButton>
+      </div>
     </div>
   );
 };

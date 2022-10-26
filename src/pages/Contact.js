@@ -1,8 +1,11 @@
+import { useQuery } from "@tanstack/react-query";
+import { Axios } from "axios";
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import ArrCard from "../components/ListArray";
 const Contact = () => {
+ 
   return (
     <div className="w-full min-h-screen bg-[#EEEEF6] pt-12">
       <div className="w-fit h-fit p-4 mx-auto mb-8">
@@ -14,7 +17,7 @@ const Contact = () => {
       </div>
       <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 p-4 gap-2">
         {ArrCard.map((each) => {
-          return <Card list={each} image={true} bg="#0090FF" />;
+          return <Card list={each} image={true} bg="#0090FF" key={each.route} />;
         })}
       </div>
     </div>

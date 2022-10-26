@@ -3,19 +3,17 @@ import { HiOutlineLightningBolt } from "react-icons/hi";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { ItemContext } from "../../components/contextApi/statemanagement.contextApi";
-const NgoPart1 = () => {
+const Donation1 = () => {
   const ref = useRef(null);
   const navigate = useNavigate();
-  const { state, dispatch ,error} = ItemContext();
-  const { StoreValue } = state;
-  const { Ngo, NgoSearch, SearchedRes } = state;
-  const res = Ngo[0]?.filter((user, idx) => {
-    return idx <= 19;
-  });
-  const searchedResult = useRef();
-  const inputRef = useRef();
   let arr = ["Ayo", "Peter", "Samson", "Dele"];
-  // let arr = Ngo[0];
+  const searchedResult = useRef();
+
+  const { state, dispatch } = ItemContext();
+  const { DonSearch,Donation,StoreValueDon,SearchedResDon} = state;
+  const res = Donation[0]?.map((user, idx) => {
+    return user;
+  });
   const filteredSearch = () => {
     // searchedResult.current.classList.remove("hidden");
     // searchedResult.current.classList.add("block");
@@ -23,37 +21,37 @@ const NgoPart1 = () => {
     // inputRef.current.classList.add("ring-4 ring-blue-500");
     // console.log(inputRef.current.className);
   };
-  localStorage.setItem("search", JSON.stringify(StoreValue));
-  const filter = arr?.filter((a) => {
-    return a.toLowerCase().includes(NgoSearch.toLowerCase());
+  localStorage.setItem("searchDon", JSON.stringify(StoreValueDon));
+  const filter = arr.filter((a) => {
+    return a.toLowerCase().includes(DonSearch.toLowerCase());
   });
-  const ship = JSON.parse(localStorage.getItem("search"));
+  const ship = JSON.parse(localStorage.getItem("searchDon"));
   arr = filter;
   const handleSubmit = () => {
     //  e.stopPropagation()
 
     fetch(
-      `https://konect-api.herokuapp.com/ngo/getDetailSector?tag=${NgoSearch}`
+      `https://konect-api.herokuapp.com/ngo/getDonation/${DonSearch}`
     )
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        dispatch({ type: "searchedRes", payload: data });
-        navigate(`getDetails/tag=${NgoSearch}`);
-        console.log(SearchedRes);
+        dispatch({ type: "searchedResDon", payload: data });
+        // navigate(`getDetails/tag=${NgoSearch}`);
+        // console.log(SearchedRes);
       })
       .catch((err) => {
         dispatch({ type: "error", payload: err });
         console.log(err);
       });
-    if (NgoSearch) {
+    if (DonSearch) {
       // navigate("/search");
-      dispatch({ type: "ADD_TO_RESULTARR", payload: NgoSearch });
+      dispatch({ type: "ADD_TO_RESULTARR_Don", payload: DonSearch });
     }
-    localStorage.setItem("search", JSON.stringify(StoreValue));
-    const get = localStorage.getItem("search");
-    // console.log(searchRes);
+    localStorage.setItem("searchDon", JSON.stringify(StoreValueDon));
+    const get = localStorage.getItem("searchDon");
+    console.log(SearchedResDon);
     if (get) {
       return JSON.parse(get);
     } else {
@@ -61,38 +59,32 @@ const NgoPart1 = () => {
     }
   };
   return (
-    <div className="flex flex-col  md:flex-row gap-6 items-center justify-center relative">
-      <h2>NGOs</h2>
+    <div className="flex flex-col  md:flex-row gap-6  items-center justify-center relative">
+      <h2>Donation</h2>
       <div className="flex items-center h-fit gap-2">
         <div className="border border-solid bg-[#EEEEF6] rounded-lg w-[400px] h-[40px] ">
-          <div
-            className="flex  w-full mb-4 rounded"
-            // onBlur={() => {
-            //   searchedResult.current.classList.add("hidden");
-            //   searchedResult.current.classList.remove("block");
-            //   inputRef.current.classList.remove("ring-4");
-            // }}
-          >
-            <input
+          <div className="flex  w-full mb-4 rounded">
+          <input
               onFocus={filteredSearch}
               ref={ref}
               onChange={(e) => {
-                dispatch({ type: "Ngo_InputVal", payload: e.target.value });
+                dispatch({ type: "DonInputVal", payload: e.target.value });
                 searchedResult.current.classList.remove("hidden");
                 searchedResult.current.classList.add("block");
-                if (NgoSearch === "") {
+                if (DonSearch === "") {
                   return (arr = []);
                 } else {
                   return arr;
                 }
               }}
               type="search"
-              value={NgoSearch}
+              value={DonSearch}
               className=" flex-auto min-w-0 bg-[#EEEEF6] block w-full px-3 py-1.5 text-base font-normal text-gray-700  bg-clip-padding  border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2"
             />
+            
             <span
               onClick={handleSubmit}
               className=" flex items-center px-3 py-1.5 text-base font-normal text-gray-700 text-center whitespace-nowrap rounded"
@@ -119,16 +111,16 @@ const NgoPart1 = () => {
               className="bg-blue-500 w-[25rem] h-fit absolute z-10  top-12 hidden"
             >
               <div>
-                {!NgoSearch && (
+                {!DonSearch && (
                   <p className="text-center text-2xl">Recently Searched</p>
                 )}
-                {NgoSearch &&
+                {DonSearch &&
                   arr?.map((a, idx) => {
                     return (
                       <p
                         key={idx}
                         onClick={() => {
-                          dispatch({ type: "INPUT_VAL", payload: a });
+                          dispatch({ type: "INPUT_VAL_Don", payload: a });
                           // dispatch({ type: "CLEAR_INPUTVAL" });
 
                           return handleSubmit();
@@ -138,7 +130,7 @@ const NgoPart1 = () => {
                       </p>
                     );
                   })}
-                {!NgoSearch &&
+                {!DonSearch &&
                   ship?.map((a, idx) => {
                     return (
                       <>
@@ -173,7 +165,7 @@ const NgoPart1 = () => {
         </div>
       </div>
       <div className="bg-[#EEEEF6] rounded-full w-fit h-fit flex items-center p-2 gap-2">
-        <div className="bg-[#15E88E]  rounded-full w-8 h-8 justify-center items-center">
+        <div className="bg-[#15E88E] rounded-full w-8 h-8 flex justify-center items-center">
           <HiOutlineLightningBolt />
         </div>
         <div className="flex items-center gap-2">
@@ -185,4 +177,4 @@ const NgoPart1 = () => {
   );
 };
 
-export default NgoPart1;
+export default Donation1;

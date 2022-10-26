@@ -1,64 +1,64 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { ItemContext } from "../../components/contextApi/statemanagement.contextApi";
-import NgoPart1 from "./NgoPart1";
-import NgoPart2 from "./NgoPart2";
+import Donation1 from "./Donation1";
 
 const Ngo = () => {
   const { state } = ItemContext();
-  const { Ngo} = state;
-  const edu = Ngo[0]?.filter((a) => {
+  const { Donation, isLoading } = state;
+  const edu = Donation[0]?.filter((a) => {
     return a.tag === "Educational Sector";
   });
-  const agri = Ngo[0]?.filter((a) => {
+  const agri = Donation[0]?.filter((a) => {
     return a.tag === "Agricultural Sector";
   });
-  const health = Ngo[0]?.filter((a) => {
+  const health = Donation[0]?.filter((a) => {
     return a.tag === "Health Sector";
   });
-  const all = Ngo[0]?.map((a) => {
+  const all = Donation[0]?.map((a) => {
     return a;
   });
   return (
-    <div className="sm:px-24 py-10  px-6 text-sm md:text-lg ">
-      <NgoPart1 />
+    <div className="sm:px-24 py-10  px-6 text-sm md:text-lg">
+      <Donation1 />
+
       <div className="my-10">
         <NavLink
-          to="/ngo/all"
+          to="all"
           className={({ isActive }) => {
             return isActive
-              ? "text-white bg-[#1B1A42] duration-500 p-2 md:p-2 font-normal rounded-full md:text-sm"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              ? "text-white bg-[#1B1A42] duration-500  p-2 font-normal rounded-full"
+              : "text-[rgba(0,0,0,0.5)] p-3 md:p-4 ";
           }}
         >
           All({all?.length})
         </NavLink>
         <NavLink
-          to="/ngo/education"
+          to="education"
           className={({ isActive }) => {
             return isActive
-              ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
+              ? "text-white bg-[#1B1A42] duration-500  p-2 font-normal rounded-full"
               : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
           }}
         >
           Education({edu?.length})
         </NavLink>
         <NavLink
-          to="/ngo/health-center"
+          to="health-center"
           className={({ isActive }) => {
             return isActive
-              ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
+              ? "text-white bg-[#1B1A42] duration-500  p-2  font-normal rounded-full"
               : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
           }}
         >
           Health Center({health?.length})
         </NavLink>
         <NavLink
-          to="/ngo/agricultural-sector"
+          to="agricultural-sector"
           className={({ isActive }) => {
             return isActive
-              ? "text-white bg-[#1B1A42] duration-500 sm:text-sm md:text-sm p-2 md:p-2 font-normal rounded-full"
-              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 ";
+              ? "text-white bg-[#1B1A42] duration-500  p-2  font-normal rounded-full"
+              : "text-[rgba(0,0,0,0.5)] p-3 md:p-2 mx-3 ";
           }}
         >
           Agricultural Sector({agri?.length})

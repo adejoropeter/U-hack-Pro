@@ -1,24 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
-import { Axios } from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { ItemContext } from "../../components/contextApi/statemanagement.contextApi";
-import NgoCard from "./NgoCard";
+import NgoCard from "../ngo/NgoCard";
 
-const NgoPart2 = () => {
+const Donation2b = () => {
   const { state, loading, errorMsg, error } = ItemContext();
-  const { Ngo, isLoading, isError } = state;
 
+  const { Donation } = state;
+  const ngo = Donation[0]?.filter((a) => {
+    return a.tag === "Educational Sector";
+  });
+  console.log(ngo);
   return (
     <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols- lg:grid-cols-3 p-4 gap-10 sm:gap-14 lg:gap-32">
-      {!loading &&
-        Ngo[0]
-          ?.filter((a, idx) => {
-            return idx <= 19;
+      {loading &&
+        Donation[0]
+          ?.filter((a) => {
+            return a.tag === "Educational Sector";
           })
           .map((a) => {
             return <NgoCard key={a.id} getNgo={a} />;
           })}
-
       {loading && (
         <div className="mx-auto flex justify-center animate-spin items-center relative w-8 h-8 border-4 rounded-full">
           <div
@@ -29,9 +30,11 @@ const NgoPart2 = () => {
           </div>
         </div>
       )}
-      {errorMsg && <p>{error}</p>}
+      {errorMsg &&(
+        <p>{error}</p>
+      )}
     </div>
   );
 };
 
-export default NgoPart2;
+export default Donation2b;

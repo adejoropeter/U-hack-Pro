@@ -21,11 +21,11 @@ const Company = () => {
     }
     return currentIndex
   }
-  console.log(currentIndex)
+  // console.log(currentIndex)
   // console.log(currentIndex+2);
   // console.log(items[nextIndex])
   return (
-    <div className="w-full min-h-screen bg-[] pt-12 ">
+    <div className="w-full min-h-screen bg-[] pt-12 px-10">
       <CompanyPart1 />
       <CompanyPart2 />
       <CompanyPart3 />

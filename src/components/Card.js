@@ -1,16 +1,20 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { Axios } from "axios";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ItemContext } from "./contextApi/statemanagement.contextApi";
 const Card = ({ list, image, text, bg, text2, text3 }) => {
-  const { focus } = ItemContext();
+  
+
+
+  // const { focus } = ItemContext();
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/contact/${list.route}`);
+    navigate(`/ngo/${list.route}`);
     // console.log(focus)
     // focus.current.onfocus()
     // window.scroll(0,0)
     document.documentElement.scrollTop = 0;
-    console.log(document.documentElement.scrollTop);
   };
   return (
     <div
@@ -37,7 +41,7 @@ const Card = ({ list, image, text, bg, text2, text3 }) => {
           )}
           {/* <img src="/assets/barcode.png" alt="barcode" className="w-12 h-12" /> */}
         </div>
-        <p className={`text-center text-md font-medium ${image?'':'mb-4'}`}>
+        <p className={`text-center text-md font-medium ${image ? "" : "mb-4"}`}>
           {image ? list.name : <p>{text2}</p>}
         </p>
       </div>
@@ -47,7 +51,13 @@ const Card = ({ list, image, text, bg, text2, text3 }) => {
           {image ? (
             list.description
           ) : (
-            <p className={`text-black text-sm  font-normal ${image?'':'mt-4'}`}>{text3}</p>
+            <p
+              className={`text-black text-sm  font-normal ${
+                image ? "" : "mt-4"
+              }`}
+            >
+              {text3}
+            </p>
           )}
         </p>
       </div>

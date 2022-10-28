@@ -28,7 +28,7 @@ const reducer = (state, action) => {
     case "DonInputVal":
       return { ...state, DonSearch: action.payload };
     case "searchedRes":
-      return { ...state, SearchedRes: [action.payload] };
+      return { ...state, SearchedRes: action.payload };
     case "searchedResDon":
       return { ...state, SearchedResDon: [action.payload] };
     case "STORE_INPUTVAL":

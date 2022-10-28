@@ -9,7 +9,7 @@ const CustomButton = ({
   brCol,
   brWid,
   pad,
-  width,
+  width,teSize
 }) => {
   return (
     <button
@@ -22,10 +22,11 @@ const CustomButton = ({
         borderWidth: brWid,
         padding: pad,
         width,
+        teSize
       }}
       className={` ${
-        isBool ? " rounded-lg text-sm text-[#1B1A42]" : "mx-auto"
-      }  flex justify-center items-center h-8 font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out `}
+        isBool ? " rounded-lg  text-[#1B1A42]" : "mx-auto"
+      }  flex justify-center items-center h-8 font-medium text-xs leading-tight rounded shadow-md hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out `}
     >
       {children}
     </button>

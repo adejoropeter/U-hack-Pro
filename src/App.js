@@ -34,6 +34,7 @@ import Donation2b from "./pages/donation/Donation2b";
 import ViewDonation from "./pages/donation/ViewDonation";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 function App() {
   const client = new QueryClient();
@@ -43,8 +44,8 @@ function App() {
 
   //   console.log(str);
   // };
-  const { state } = ItemContext();
-  const { InputVal } = state;
+  // const { state } = ItemContext();
+  // const { InputVal } = state;
   return (
     <>
       <div
@@ -57,42 +58,56 @@ function App() {
       </div>
       <QueryClientProvider client={client}>
         <BrowserRouter>
-        {/* <Login/> */}
-          <div className=" w-full h-[80px] border-b-2 sm:border-none flex justify-between px-6 md:px-10 py-4 bg-white items-center">
+          {/* <Login/> */}
+          <div className=" w-full h-[80px] border-b-2 sm:border-none flex justify-between px-10 py-10 md:px-10 bg-[#EEEEF6]  items-center">
             <Navbar />
           </div>
+
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/ngo" element={<Ngo />}>
+                <Route path="all" element={<NgoPart2 />}></Route>
+                <Route path="education" element={<NgoPart2b />}></Route>
+                <Route path="health-center" element={<NgoPart2c />}></Route>
+                <Route
+                  path="agricultural-sector"
+                  element={<NgoPart2d />}
+                ></Route>
+              </Route>
+              <Route path="/view-donation" element={<ViewDonation />}></Route>
+              <Route path="/company" element={<Company />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
+              <Route path="ngo/donate" element={<Donation />}>
+                <Route path="all" element={<Donation2 />}></Route>
+                <Route path="education" element={<Donation2b />}></Route>
+                <Route path="health-center" element={<Donation2b />}></Route>
+                <Route
+                  path="agricultural-sector"
+                  element={<NgoPart2d />}
+                ></Route>
+              </Route>
+              <Route path="contact/volunteer" element={<Volunteer />}></Route>
+              <Route
+                path="contact/partnership"
+                element={<Partnership />}
+              ></Route>
+              <Route path="contact/faqs" element={<Faq />}></Route>
+              <Route path="contact/message" element={<Message />}></Route>
+              <Route path="company/blog/blog1" element={<Blog1 />}></Route>
+              <Route path="company/blog/blog2" element={<Blog2 />}></Route>
+              <Route path="company/blog/blog3" element={<Blog3 />}></Route>
+              <Route path="view" element={<ViewNgo />}></Route>
+              <Route
+                path="ngo/getDetails/:user"
+                element={<SearchedPage />}
+              ></Route>
+            <Route path="*" element={"Page Not found"}></Route>
+            </Route>
+
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
-            <Route path="/ngo" element={<Ngo />}>
-              <Route path="all" element={<NgoPart2 />}></Route>
-              <Route path="education" element={<NgoPart2b />}></Route>
-              <Route path="health-center" element={<NgoPart2c />}></Route>
-              <Route path="agricultural-sector" element={<NgoPart2d />}></Route>
-            </Route>
-            <Route path="/view-donation" element={<ViewDonation />}></Route>
-            <Route path="/company" element={<Company />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
-            <Route path="ngo/donate" element={<Donation />}>
-              <Route path="all" element={<Donation2 />}></Route>
-              <Route path="education" element={<Donation2b />}></Route>
-              <Route path="health-center" element={<Donation2b />}></Route>
-              <Route path="agricultural-sector" element={<NgoPart2d />}></Route>
-            </Route>
-            <Route path="contact/volunteer" element={<Volunteer />}></Route>
-            <Route path="contact/partnership" element={<Partnership />}></Route>
-            <Route path="contact/faqs" element={<Faq />}></Route>
-            <Route path="contact/message" element={<Message />}></Route>
-            <Route path="company/blog/blog1" element={<Blog1 />}></Route>
-            <Route path="company/blog/blog2" element={<Blog2 />}></Route>
-            <Route path="company/blog/blog3" element={<Blog3 />}></Route>
-            <Route path="view" element={<ViewNgo />}></Route>
-            <Route
-              path="ngo/getDetails/:user"
-              element={<SearchedPage />}
-            ></Route>
-            <Route path="*" element={"Page Not found"}></Route>
+
           </Routes>
 
           <Footer />

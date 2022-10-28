@@ -22,12 +22,12 @@ const Ngo = () => {
   return (
     <div className="sm:px-24 py-10  px-6 text-sm md:text-lg ">
       <NgoPart1 />
-      <div className="my-10">
+      <div className="my-10 flex gap-4">
         <NavLink
           to="/ngo/all"
           className={({ isActive }) => {
             return isActive
-              ? "text-white bg-[#1B1A42] duration-500 p-2 md:p-2 font-normal rounded-full md:text-sm"
+              ? "text-white bg-[#1B1A42] duration-500 p-2  font-normal rounded-full md:text-sm"
               : "text-[rgba(0,0,0,0.5)]  md:p-2 ";
           }}
         >

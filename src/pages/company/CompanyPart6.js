@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/CustomButton";
 
 const CompanyPart6 = () => {
+  const navigate=useNavigate()
   return (
     <div
       style={{
@@ -17,7 +19,7 @@ const CompanyPart6 = () => {
           phasellus condimentum vitae amet molestie vitae.{" "}
         </p>
       </div>
-      <div className="">
+      <div className="" onClick={()=>navigate('contact/volunteer')}>
       <CustomButton bg="transparent" brWid="1px" pad="0px 30px" >Learn More</CustomButton>
 
       </div>

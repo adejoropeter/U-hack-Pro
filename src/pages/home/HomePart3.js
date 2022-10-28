@@ -2,13 +2,15 @@ import React from "react";
 import CustomButton from "../../components/CustomButton";
 import Card from "../../components/Card";
 import { useNavigate } from "react-router-dom";
+import { ItemContext } from "../../components/contextApi/statemanagement.contextApi";
 
 const HomePart3 = () => {
+  const { isAuth } = ItemContext();
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("ngo/all");
     document.documentElement.scrollTop = 0;
-    
+    console.log(isAuth);
   };
   return (
     <div>
@@ -87,18 +89,17 @@ const HomePart3 = () => {
               <p className="h-full w-[60%] bg-[#1B1A42] rounded-full"></p>
             </div>{" "}
             <div onClick={handleClick}>
-
-            <CustomButton
-              width="100%"
-              pad="10px 0px"
-              bg="#1B1A42"
-              text="white"
-              spacing="auto"
-              isBool={true}
+              <CustomButton
+                width="100%"
+                pad="10px 0px"
+                bg="#1B1A42"
+                text="white"
+                spacing="auto"
+                isBool={true}
               >
-              View Donations
-            </CustomButton>
-              </div>
+                View Donations
+              </CustomButton>
+            </div>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ const ViewNgo3 = () => {
 
   const handleClick = () => {
     navigate("/ngo/donate");
+    document.documentElement.scrollTop = 0;
   };
   return (
     <div className="flex flex-col gap-4 ">

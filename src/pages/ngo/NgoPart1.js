@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { HiOutlineLightningBolt } from "react-icons/hi";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,10 @@ import { ItemContext } from "../../components/contextApi/statemanagement.context
 const NgoPart1 = () => {
   const ref = useRef(null);
   const navigate = useNavigate();
-  const { state, dispatch ,error} = ItemContext();
+  const { state, dispatch, error } = ItemContext();
   const { StoreValue } = state;
   const { Ngo, NgoSearch, SearchedRes } = state;
+  const [searched, setSearched] = useState(true);
   const res = Ngo[0]?.filter((user, idx) => {
     return idx <= 19;
   });
@@ -16,19 +17,30 @@ const NgoPart1 = () => {
   const inputRef = useRef();
   let arr = ["Ayo", "Peter", "Samson", "Dele"];
   // let arr = Ngo[0];
+  let as = [
+    "Agricultural Sector",
+    "Educational Sector",
+    "Poverty Elimination",
+    "Health Center",
+  ];
+  // const uni=[...new Set(as)];
+  // console.log(uni)
   const filteredSearch = () => {
-    // searchedResult.current.classList.remove("hidden");
-    // searchedResult.current.classList.add("block");
-    // inputRef.current.classList.remove("ring-gray-400 ring-2");
-    // inputRef.current.classList.add("ring-4 ring-blue-500");
-    // console.log(inputRef.current.className);
+    console.log(searched);
+    setSearched(false);
   };
-  localStorage.setItem("search", JSON.stringify(StoreValue));
-  const filter = arr?.filter((a) => {
-    return a.toLowerCase().includes(NgoSearch.toLowerCase());
+  // remove duplicates recent value
+  const fil = [...new Set(StoreValue)];
+  // console.log(fil)
+  localStorage.setItem("search", JSON.stringify(fil));
+  const filter = as?.filter((a) => {
+    return a?.toLowerCase().includes(NgoSearch.toLowerCase());
   });
   const ship = JSON.parse(localStorage.getItem("search"));
-  arr = filter;
+  as = filter;
+  // console.log(Ngo[0])
+
+  // console.log(uni)
   const handleSubmit = () => {
     //  e.stopPropagation()
 
@@ -41,7 +53,6 @@ const NgoPart1 = () => {
       .then((data) => {
         dispatch({ type: "searchedRes", payload: data });
         navigate(`getDetails/tag=${NgoSearch}`);
-        console.log(SearchedRes);
       })
       .catch((err) => {
         dispatch({ type: "error", payload: err });
@@ -61,25 +72,27 @@ const NgoPart1 = () => {
     }
   };
   return (
-    <div className="flex flex-col  md:flex-row gap-6 items-center justify-center relative">
+    <div
+      onFocus={() => {
+        setSearched(true);
+      }}
+      className="flex flex-col  md:flex-row gap-6 items-center justify-center relative"
+    >
       <h2>NGOs</h2>
       <div className="flex items-center h-fit gap-2">
         <div className="border border-solid bg-[#EEEEF6] rounded-lg w-[400px] h-[40px] ">
           <div
             className="flex  w-full mb-4 rounded"
-            // onBlur={() => {
-            //   searchedResult.current.classList.add("hidden");
-            //   searchedResult.current.classList.remove("block");
-            //   inputRef.current.classList.remove("ring-4");
-            // }}
+            onBlur={() => {
+              // setSearched(false)
+            }}
           >
             <input
-              onFocus={filteredSearch}
+              onClick={filteredSearch}
               ref={ref}
               onChange={(e) => {
                 dispatch({ type: "Ngo_InputVal", payload: e.target.value });
-                searchedResult.current.classList.remove("hidden");
-                searchedResult.current.classList.add("block");
+                setSearched(false);
                 if (NgoSearch === "") {
                   return (arr = []);
                 } else {
@@ -115,23 +128,26 @@ const NgoPart1 = () => {
               </svg>
             </span>
             <div
-              ref={searchedResult}
-              className="bg-blue-500 w-[25rem] h-fit absolute z-10  top-12 hidden"
+              // ref={searchedResult}
+              className={`${
+                searched ? "hidden" : "block"
+              } bg-blue-500 text-white text-lg w-[25rem] h-fit absolute z-10 px-10 top-24 md:top-14 `}
             >
               <div>
                 {!NgoSearch && (
                   <p className="text-center text-2xl">Recently Searched</p>
                 )}
                 {NgoSearch &&
-                  arr?.map((a, idx) => {
+                  as?.map((a, idx) => {
                     return (
                       <p
+                        className="cursor-pointer"
                         key={idx}
                         onClick={() => {
-                          dispatch({ type: "INPUT_VAL", payload: a });
+                          dispatch({ type: "Ngo_InputVal", payload: a });
                           // dispatch({ type: "CLEAR_INPUTVAL" });
-
-                          return handleSubmit();
+                          setSearched(true);
+                          // return handleSubmit();
                         }}
                       >
                         {a}
@@ -143,18 +159,15 @@ const NgoPart1 = () => {
                     return (
                       <>
                         <p
-                          onBlur={() => {
-                            // searchedResult.current.classList.add("hidden");
-                            // searchedResult.current.classList.remove("block");
-                            // inputRef.current.classList.remove("ring-4");
-                            // console.log("jfj");
-                          }}
+                          className="cursor-pointer"
+                          
                           key={idx}
                           onClick={() => {
                             dispatch({ type: "Ngo_InputVal", payload: a });
+                            setSearched(true);
                             // dispatch({ type: "CLEAR_INPUTVAL" });
                             // console.log(inputVal);
-                            return handleSubmit();
+                            // return handleSubmit();
                           }}
                         >
                           {a}
@@ -173,7 +186,7 @@ const NgoPart1 = () => {
         </div>
       </div>
       <div className="bg-[#EEEEF6] rounded-full w-fit h-fit flex items-center p-2 gap-2">
-        <div className="bg-[#15E88E]  rounded-full w-8 h-8 justify-center items-center">
+        <div className="bg-[#15E88E]  rounded-full w-8 h-8 flex justify-center items-center">
           <HiOutlineLightningBolt />
         </div>
         <div className="flex items-center gap-2">

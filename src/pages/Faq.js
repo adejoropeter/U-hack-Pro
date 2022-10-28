@@ -12,7 +12,7 @@ const Faq = () => {
   const [show7, setShow7] = useState(false);
   const [show8, setShow8] = useState(false);
   const [show9, setShow9] = useState(false);
-  const [show10, setShow10] = useState(false);
+  const [show10, setShow10] = useState(true);
   return (
     <div className="border-2 max-w-xl sm:mx-auto mx-10 my-20">
       <div className="mb-4 border-b-[1px] py-2 px-4">

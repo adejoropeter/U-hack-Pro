@@ -16,7 +16,7 @@ const HomePart2 = () => {
           only create verified donation requests.
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row  items-center sm:justify-between p-4 gap-2">
+      <div className="flex flex-col sm:flex-row  items-center sm:justify-between lg:justify-center lg:gap-10 p-4 gap-2">
         <Card
           image={false}
           text="1"

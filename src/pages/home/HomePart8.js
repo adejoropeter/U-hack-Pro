@@ -9,7 +9,7 @@ const HomePart8 = () => {
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
   const handleSubmit = () => {
-    
+
   };
   return (
     <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
@@ -31,7 +31,7 @@ const HomePart8 = () => {
         <form
           className="w-full "
           method="POST"
-          action="https://getform.io/f/193df8b5-807d-4254-99fb-5e596ba80053"
+          
         >
           <div className=" mb-4 flex gap-2 flex-col sm:flex-row mr-4 w-full sm:w-full">
             <input

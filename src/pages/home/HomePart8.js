@@ -8,7 +8,9 @@ const HomePart8 = () => {
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    
+  };
   return (
     <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
       <div className="w-full md:w-1/2 ">

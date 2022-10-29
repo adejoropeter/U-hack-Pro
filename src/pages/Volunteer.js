@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import { Navigate, useNavigate } from "react-router-dom";
 import { ItemContext } from "../components/contextApi/statemanagement.contextApi";
 import CustomButton from "../components/CustomButton";
 const Volunteer = () => {
@@ -24,36 +25,37 @@ const Volunteer = () => {
   const handleOnBlur = () => {
     setShowSuc(false);
   };
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post(
-        "https://konect-auth-api.herokuapp.com/users/addVolunteer",
-        {
-          firstName,
-          lastName,
-          phoneNumber,
-          email,
-          address,
-          gender,
-          postalCode,
-          reason,
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    axios
+      .post("https://konect-auth-api.herokuapp.com/users/addVolunteer", {
+        firstName,
+        lastName,
+        phoneNumber,
+        email,
+        address,
+        gender,
+        postalCode,
+        reason,
+      })
+      .then((res) => {
+        if (fiName.current.value === "") {
+          setShowErrorMsg(
+            setTimeout(() => {
+              setErrorMsg("Please fill out the field");
+              setFocus(false);
+            }, 500)
+          );
+        } else {
+          console.log(res);
+          setShowSuc(true);
+          console.log("done");
         }
-      );
-      console.log(response.data);
-      // setIsAuth(true);
-      // navigate("/");
-      // document.documentElement.scrollTop = 0;
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
 
-      // console.log('ki')
-    } catch (err) {
-      console.log(err);
-      // if (err.response.data === undefined) {
-      //   setErr(err.message);
-      // } else {
-      //   setErr(err.response.data);
-      // }
-      // setBool(true);
-    }
     // axios
     //   .post("https://konect-auth-api.herokuapp.com/users/addVolunteer", {
     //     firstName,
@@ -102,8 +104,8 @@ const Volunteer = () => {
           onSubmit={(e) => handleSubmit(e)}
           className="flex flex-col justify-between w-full"
         >
-          <div className="flex flex-col sm:flex-row w-full sm:mb-3">
-            <div className="flex flex-col mr-4 w-full sm:w-1/2">
+          <div className="flex flex-col sm:flex-row w-full sm:mb-3 ">
+            <div className="flex flex-col mr-4 w-full sm:w-1/2 mb-4">
               <label for="firstname" className="mb-2 text-[#1B1A42]">
                 First Name
               </label>
@@ -117,7 +119,7 @@ const Volunteer = () => {
                 className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
               />
             </div>
-            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2">
+            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2 mb-4">
               <label for="lastname" className="mb-2 text-[#1B1A42]">
                 Last Name
               </label>
@@ -133,7 +135,7 @@ const Volunteer = () => {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row w-full sm:mb-3">
-            <div className="flex flex-col mr-4 w-full sm:w-1/2">
+            <div className="flex flex-col mr-4 w-full sm:w-1/2 mb-4">
               <label for="phone" className="mb-2 text-[#1B1A42]">
                 Phone Number
               </label>
@@ -148,7 +150,7 @@ const Volunteer = () => {
                 className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
               />
             </div>
-            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2">
+            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2 mb-4">
               <label for="email" className="mb-2 text-[#1B1A42]">
                 Email
               </label>
@@ -164,7 +166,7 @@ const Volunteer = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col sm:mb-3">
+          <div className="flex flex-col mb-4 sm:mb-3">
             <label for="street" className="mb-2 text-[#1B1A42]">
               Street Address
             </label>
@@ -179,8 +181,8 @@ const Volunteer = () => {
               ref={fiName}
             />
           </div>
-          <div className="flex flex-col sm:flex-row w-full sm:mb-3">
-            <div className="flex flex-col mr-4 w-full sm:w-1/2">
+          <div className="flex flex-col sm:flex-row w-full mb-4 sm:mb-3">
+            <div className="flex flex-col mr-4 w-full sm:w-1/2 mb-4">
               <label for="select" className="mb-2 text-[#1B1A42]">
                 Gender
               </label>
@@ -196,7 +198,7 @@ const Volunteer = () => {
               </select>
               {/* // className="h-10 p-2" */}
             </div>
-            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2">
+            <div className="flex flex-col sm:ml-4 w-full sm:w-1/2 mb-4">
               <label for="postal" className="mb-2 text-[#1B1A42]">
                 Postal Code
               </label>
@@ -228,8 +230,9 @@ const Volunteer = () => {
             <CustomButton
               bg="#1B1A42"
               isBool={false}
-              pad="2px 16px"
+              pad="10px 30px"
               text="white"
+              teSize="20px"
             >
               Submit
             </CustomButton>
@@ -249,7 +252,14 @@ const Volunteer = () => {
           onBlur={handleOnBlur}
           className="w-96 h-64 shadow-xl bg-white fixed rounded-3xl py-6 px-10 top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]"
         >
-          <div onClick={() => setShowSuc(false)} className="flex justify-end">
+          <div
+            onClick={() => {
+              navigate("/");
+              setShowSuc(false);
+              document.documentElement.scrollTop = 0;
+            }}
+            className="flex justify-end"
+          >
             <FaTimes className="text-[#1B1B1B]" />
           </div>
           <div className="w-32 h-32 bg-[#EEEEF6] pb-10 pt-10 rounded-full mx-auto flex justify-center items-center">

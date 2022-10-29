@@ -72,7 +72,7 @@ const Navbar = () => {
       {isAuth ? (
         <button
           onClick={() => {
-            navigate("/login");
+            navigate("/start");
             setIsAuth(false);
           }}
           className="bg-[#1B1A42] hidden sm:block  w-fit h-fit px-[6px] text-lg  md:px-3  py-1 text-white  rounded-lg"
@@ -165,7 +165,7 @@ const Navbar = () => {
             {isAuth ? (
 
               <NavLink
-              to="/contact"
+              to="/login"
               onClick={() => {
                 setIsAuth(false)
                 setNav(!nav)}}
@@ -180,7 +180,7 @@ const Navbar = () => {
             </NavLink>
             ) : (
               <NavLink
-              to="/contact"
+              to="/login"
               onClick={() => setNav(!nav)}
               className={({ isActive }) => {
                 return isActive

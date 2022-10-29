@@ -44,7 +44,7 @@ const Footer = () => {
               <h1 className="text-sm sm:text-lg text-[#1B1A42] font-semibold ">
                 Resources
               </h1>
-                <Link to="/blog" className="mt-6 text-sm sm:text-md" onClick={scroll}>Blog</Link>
+                <Link to="company/blog/blog1" className="mt-6 text-sm sm:text-md" onClick={scroll}>Blog</Link>
                 <Link to="/testimonial" className="mt-6 text-sm sm:text-md" onClick={scroll}>Testimonial</Link>
                 <Link to="/faq" className="mt-6 text-sm sm:text-md" onClick={scroll}>FAQs</Link>
                 <Link to="/volunteer" className="mt-6 text-sm sm:text-md" onClick={scroll}>Volunteer</Link>

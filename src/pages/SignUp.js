@@ -35,7 +35,7 @@ const SignUp = () => {
         }
       );
       // console.log(response.data);
-      navigate("/login");
+      navigate("/start");
       document.documentElement.scrollTop = 0;
       setErr(response.data);
     } catch (err) {

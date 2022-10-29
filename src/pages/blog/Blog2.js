@@ -101,7 +101,7 @@ const Blog2 = () => {
       </div>
       <div>
         <p className="mb-4 text-2xl font-normal">Next Up</p>
-        <div className="mb-10 flex overflow-hidden h-fit flex-row w-full rounded-lg bg-white shadow-lg">
+        <div className="mb-10 flex overflow-hidden h-fit flex-row w-full rounded-lg bg-white shadow-lg border border-gray-400">
           <img
             className=" w-[200px]  md:h-auto object-cover md:w-72 rounded-t-lg md:rounded-none md:rounded-l-lg"
             src="/assets/children-playing2.png"

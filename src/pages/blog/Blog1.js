@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/CustomButton";
 
 const Blog1 = () => {
-    const navigate=useNavigate()
-    const handleClick=()=>{
-        navigate(`/company/blog/blog2`)
-        document.documentElement.scrollTop = 0;
-    
-      }
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/company/blog/blog2`);
+    document.documentElement.scrollTop = 0;
+  };
   return (
     <div className="w-full min-h-screen bg-[] pt-12 px-10 py-10">
       <div className="flex flex-col items-center ">
@@ -63,11 +62,14 @@ const Blog1 = () => {
           </div>
         </div>
       </div>
-      <div className="my-10">
-        <img src="/assets/poverty.png" className="w-full h-[400px] object-cover" />
+      <div className="mt-10">
+        <img
+          src="/assets/poverty.png"
+          className="w-full h-full object-cover"
+        />
       </div>
       <div>
-        <h1 className="text-center text-[rgba(0,0,0,0.6)] text-2xl mb-6">
+        <h1 className="text-center text-[rgba(0,0,0,0.6)] text-2xl  ">
           The Story of Poverty in Ilupeju
         </h1>
         <p className="mb-4 text-center md:text-left w-full ">
@@ -96,11 +98,10 @@ const Blog1 = () => {
           in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur
         </p>
-        
       </div>
-      <div>
+      <div className="mt-10">
         <p className="mb-4 text-2xl font-normal">Next Up</p>
-        <div className="mb-10 flex flex-row w-full rounded-lg bg-white shadow-lg">
+        <div className="mb-10 flex flex-row w-full rounded-lg bg-white shadow-lg border border-gray-400">
           <img
             className=" w-[200px] h-96 md:h-auto object-cover md:w-72 rounded-t-lg md:rounded-none md:rounded-l-lg"
             src="/assets/cover.png"

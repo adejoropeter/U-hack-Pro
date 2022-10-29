@@ -100,7 +100,7 @@ const Blog1 = () => {
         </p>
       </div>
       <div className="mt-10">
-        <p className="mb-4 text-2xl font-normal">Next Up</p>
+        <p className="mb-4 text-2xl font-normal text-center sm:text-left">Next Up</p>
         <div className="mb-10 flex overflow-hidden h-fit flex-row w-full rounded-lg bg-white shadow-lg border border-gray-400">
           <img
             className=" w-[200px]  md:h-auto object-cover md:w-72 rounded-t-lg md:rounded-none md:rounded-l-lg"

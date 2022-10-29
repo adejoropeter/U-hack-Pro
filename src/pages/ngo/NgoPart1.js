@@ -78,7 +78,7 @@ const NgoPart1 = () => {
       }}
       className="flex flex-col  md:flex-row gap-6 items-center justify-center relative"
     >
-      <h2>NGOs</h2>
+      <h2 className="text-lg font-bold">NGOs</h2>
       <div className="flex items-center h-fit gap-2">
         <div className="border border-solid bg-[#EEEEF6] rounded-lg w-[400px] h-[40px] ">
           <div

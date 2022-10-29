@@ -1,34 +1,41 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import CustomButton from "../../components/CustomButton";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const HomePart8 = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNum, setPhoneNum] = useState("");
+  const focus = useRef();
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
-  const [focus1, setFocus] = useState("");
+  const [focus1, setFocus] = useState(true);
   const [showSuc, setShowSuc] = useState(false);
   const [showErrMsg, setShowErrorMsg] = useState(null);
   const [errMsg, setErrorMsg] = useState("");
-  const fiName=useRef('')
+  const fiName = useRef(null);
   const handleSubmit = () => {
+    console.log('dkk')
     if (fiName.current.value === "") {
       setShowErrorMsg(
         setTimeout(() => {
-       setFocus(false)
-       setErrorMsg("Please fill out the field");
+          setFocus(false);
+          setErrorMsg("Please fill out the fields");
         }, 500)
       );
     } else {
-      setShowSuc(true);
-      console.log("done");
+      setShowErrorMsg(
+        setTimeout(() => {
+          setFocus(false);
+          console.log("kdkd");
+          setErrorMsg("Form Submitted");
+        }, 1000)
+      );
+      // console.log("done");
     }
   };
   setTimeout(() => {
-    setFocus(true)
-   
+    setFocus(true);
   }, 2000);
   return (
     <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
@@ -96,11 +103,14 @@ const HomePart8 = () => {
               ref={fiName}
             />
           </div>
+          <div onClick={handleSubmit}>
+
           <CustomButton pad="0 15px" isBool={true} bg="#1B1A42" text="white">
             Volunteer
           </CustomButton>
+          </div>
           <div
-            // ref={focus}
+            ref={focus}
             className={`${
               focus1 ? "hidden" : "block"
             } fixed bottom-10 left-[50%] bg-[#1B1A42] text-white  p-3 rounded-full`}

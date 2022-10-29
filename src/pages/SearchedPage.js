@@ -9,11 +9,17 @@ const SearchedPage = () => {
   // console.log(SearchedRes);
   return (
     <>
+      <h1 className="text-center text-xl">{!SearchedRes.length && !SearchedResDon.length ? "No result found" : ""}</h1>
+      {/* <h1 className="text-center">{!SearchedResDon.length ? "No result " : ""}</h1> */}
       {SearchedRes?.map((getNgo) => {
-        return <div className="text-center text-4xl">Result For {getNgo.name}</div>;
+        return (
+          <div className="text-center text-4xl">Result For {getNgo.name}</div>
+        );
       })}
       {SearchedResDon?.map((getNgo) => {
-        return <div className="text-center text-4xl">Result For {getNgo.name}</div>;
+        return (
+          <div className="text-center text-4xl">Result For {getNgo.name}</div>
+        );
       })}
       <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols- lg:grid-cols-3 p-4 gap-10 sm:gap-14 lg:gap-32">
         {" "}

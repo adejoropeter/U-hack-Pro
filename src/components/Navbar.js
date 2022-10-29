@@ -80,10 +80,10 @@ const Navbar = () => {
           Log Out
         </button>
       ) : (
-        <div className="hidden sm:flex">
+        <div className="hidden sm:flex sm:gap-6">
           <button
             onClick={() => navigate("login")}
-            className=" text-[#1b1a42] px-[6px]  md:text-lg  md:px-3  py-1 "
+            className=" text-[#1b1a42] px-[6px]  md:text-2xl  md:px-3   py-1 "
           >
             Login
           </button>

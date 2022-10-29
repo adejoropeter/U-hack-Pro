@@ -75,7 +75,7 @@ const Navbar = () => {
             navigate("/login");
             setIsAuth(false);
           }}
-          className="bg-[#1B1A42] hidden sm:block animate-pulse w-fit h-fit px-[6px] text-lg  md:px-3  py-1 text-teal-200  rounded-lg"
+          className="bg-[#1B1A42] hidden sm:block  w-fit h-fit px-[6px] text-lg  md:px-3  py-1 text-white  rounded-lg"
         >
           Log Out
         </button>
@@ -89,7 +89,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={() => navigate("signup")}
-            className="bg-[#1B1A42] animate-pulse w-fit h-fit px-[6px] md:text-lg  md:px-3  py-1 text-teal-200  rounded-lg"
+            className="bg-[#1B1A42]  w-fit h-fit px-[6px] md:text-lg  md:px-3  py-1 text-white  rounded-lg"
           >
             Sign Up
           </button>

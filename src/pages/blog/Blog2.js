@@ -65,7 +65,7 @@ const Blog2 = () => {
         </div>
       </div>
       <div className="my-10">
-        <img src="/assets/water.png" className="w-full h-full " />
+        <img src="/assets/water.png" className="w-full h-[400px] object-cover" />
       </div>
       <div>
         <h1 className="text-center text-[rgba(0,0,0,0.6)] text-2xl mb-6">
@@ -97,19 +97,7 @@ const Blog2 = () => {
           in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur
         </p>
-        <p className="mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. ExcepteurLorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur s
-        </p>
+       
       </div>
       <div>
         <p className="mb-4 text-2xl font-normal">Next Up</p>

@@ -10,7 +10,7 @@ const HomePart1 = () => {
 
   }
   return (
-    <div className="flex flex-col sm:flex-row w-screen h-fit items-center px-6 md:px-10 py-20 pb-20 gap-4 ">
+    <div className="flex flex-col sm:flex-row w-screen h-fit items-center px-6 md:px-10 py-10 pb-20 gap-4 ">
       <div className=" w-full sm:w-1/2 flex flex-col justify-between h-full">
         <h2 className="text-4xl mb-6  lg:text-5xl  text-[#1B1A42] leading-tight ">
           Donate, make a difference.
@@ -24,7 +24,8 @@ const HomePart1 = () => {
           <CustomButton
             bg="#1B1A42"
             width="fit"
-            pad="14px"
+            pad="20px"
+            teSize="20px"
             isBool={true}
             text="white"
           >

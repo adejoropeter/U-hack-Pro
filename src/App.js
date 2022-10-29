@@ -102,12 +102,15 @@ function App() {
                 path="ngo/getDetails/:user"
                 element={<SearchedPage />}
               ></Route>
-            <Route path="*" element={"Page Not found"}></Route>
+              <Route
+                path="ngo/donate/getDonation/:user"
+                element={<SearchedPage />}
+              ></Route>
+              <Route path="*" element={"Page Not found"}></Route>
             </Route>
 
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
-
           </Routes>
 
           <Footer />

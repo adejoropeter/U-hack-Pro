@@ -160,7 +160,6 @@ const NgoPart1 = () => {
                       <>
                         <p
                           className="cursor-pointer"
-                          
                           key={idx}
                           onClick={() => {
                             dispatch({ type: "Ngo_InputVal", payload: a });

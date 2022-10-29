@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { HiOutlineLightningBolt } from "react-icons/hi";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -6,20 +6,34 @@ import { ItemContext } from "../../components/contextApi/statemanagement.context
 const Donation1 = () => {
   const ref = useRef(null);
   const navigate = useNavigate();
-  let arr = ["Ayo", "Peter", "Samson", "Dele"];
+  let arr = [
+    "Eat 4 days",
+    "Helping the kids of ilupeju",
+    "Rally of Work",
+    "Get enough sanitary pads for orphanages",
+    "Building a community school at badagry",
+    "Building a health center badagry",
+    "Building an health center kano ",
+    "Building an health center kaduna",
+    "Building an health center kwami",
+    "Building an community center kwami",
+    "Building an community center mushin",
+    "Feeding the kids kano",
+    "Feeding the kids borno",
+    "Feeding the kids cotonou",
+    "Outreach ph",
+    "Giveaway Jos",
+  ];
   const searchedResult = useRef();
-
+  const [searched, setSearched] = useState(true);
   const { state, dispatch } = ItemContext();
-  const { DonSearch,Donation,StoreValueDon,SearchedResDon} = state;
+  const { DonSearch, Donation, StoreValueDon, SearchedResDon } = state;
   const res = Donation[0]?.map((user, idx) => {
     return user;
   });
   const filteredSearch = () => {
-    // searchedResult.current.classList.remove("hidden");
-    // searchedResult.current.classList.add("block");
-    // inputRef.current.classList.remove("ring-gray-400 ring-2");
-    // inputRef.current.classList.add("ring-4 ring-blue-500");
-    // console.log(inputRef.current.className);
+    console.log(searched);
+    setSearched(false);
   };
   localStorage.setItem("searchDon", JSON.stringify(StoreValueDon));
   const filter = arr.filter((a) => {
@@ -30,15 +44,19 @@ const Donation1 = () => {
   const handleSubmit = () => {
     //  e.stopPropagation()
 
-    fetch(
-      `https://konect-api.herokuapp.com/ngo/getDonation/${DonSearch}`
-    )
+    fetch(`https://konect-api.herokuapp.com/ngo/getDonation/${DonSearch}`)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         dispatch({ type: "searchedResDon", payload: data });
-        // navigate(`getDetails/tag=${NgoSearch}`);
+        navigate(`getDonation/tag=${DonSearch}`);
+        console.log(
+          Donation[0].map((a) => {
+            return a.name;
+          })
+        );
+
         // console.log(SearchedRes);
       })
       .catch((err) => {
@@ -49,9 +67,8 @@ const Donation1 = () => {
       // navigate("/search");
       dispatch({ type: "ADD_TO_RESULTARR_Don", payload: DonSearch });
     }
-    localStorage.setItem("searchDon", JSON.stringify(StoreValueDon));
     const get = localStorage.getItem("searchDon");
-    console.log(SearchedResDon);
+    // console.log(SearchedResDon);
     if (get) {
       return JSON.parse(get);
     } else {
@@ -64,7 +81,7 @@ const Donation1 = () => {
       <div className="flex items-center h-fit gap-2">
         <div className="border border-solid bg-[#EEEEF6] rounded-lg w-[400px] h-[40px] ">
           <div className="flex  w-full mb-4 rounded">
-          <input
+            <input
               onFocus={filteredSearch}
               ref={ref}
               onChange={(e) => {
@@ -84,7 +101,7 @@ const Donation1 = () => {
               aria-label="Search"
               aria-describedby="button-addon2"
             />
-            
+
             <span
               onClick={handleSubmit}
               className=" flex items-center px-3 py-1.5 text-base font-normal text-gray-700 text-center whitespace-nowrap rounded"
@@ -108,7 +125,9 @@ const Donation1 = () => {
             </span>
             <div
               ref={searchedResult}
-              className="bg-blue-500 w-[25rem] h-fit absolute z-10  top-12 hidden"
+              className={`${
+                searched ? "hidden" : "block"
+              } bg-blue-500 text-white text-lg w-[25rem] h-fit absolute z-10 px-10 top-24 md:top-14 `}
             >
               <div>
                 {!DonSearch && (
@@ -120,10 +139,10 @@ const Donation1 = () => {
                       <p
                         key={idx}
                         onClick={() => {
-                          dispatch({ type: "INPUT_VAL_Don", payload: a });
+                          dispatch({ type: "DonInputVal", payload: a });
                           // dispatch({ type: "CLEAR_INPUTVAL" });
-
-                          return handleSubmit();
+                          setSearched(true);
+                          // return handleSubmit();
                         }}
                       >
                         {a}

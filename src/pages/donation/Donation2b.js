@@ -9,7 +9,7 @@ const Donation2b = () => {
   const ngo = Donation[0]?.filter((a) => {
     return a.tag === "Educational Sector";
   });
-  console.log(ngo);
+  // console.log(ngo);
   return (
     <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols- lg:grid-cols-3 p-4 gap-10 sm:gap-14 lg:gap-32">
       {loading &&

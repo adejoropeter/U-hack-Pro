@@ -7,7 +7,7 @@ import CustomButton from "../components/CustomButton";
 const Message = () => {
   const [errMsg, setErrorMsg] = useState("");
   const [showErrMsg, setShowErrorMsg] = useState(null);
-  const [firsName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -23,7 +23,7 @@ const Message = () => {
   const handleSubmit = () => {
     axios
       .post("https://konect-auth-api.herokuapp.com/users/addMessage", {
-        firsName,
+        firstName,
         lastName,
         subject,
         message,
@@ -37,7 +37,7 @@ const Message = () => {
             }, 500)
           );
         } else {
-          
+          console.log(res)
           setShowSuc(true);
           console.log("done");
         }
@@ -96,7 +96,7 @@ const Message = () => {
                 First Name
               </label>
               <input
-                value={firsName}
+                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 ref={fiName}
                 name="firstname"

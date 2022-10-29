@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useRef, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { ItemContext } from "../components/contextApi/statemanagement.contextApi";
@@ -8,35 +9,82 @@ const Volunteer = () => {
   const [showSuc, setShowSuc] = useState(false);
   const [showErr, setShowErrorMsg] = useState(null);
   const fiName = useRef();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [reason, setReason] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(1);
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [postalCode, setPostalCode] = useState(123);
+  const [address, setAddress] = useState("");
+  const [focus1, setFocus] = useState(true);
+  // console.log(gender)
   const focus = useRef();
-  console.log(done);
+  // console.log(done);
   const handleOnBlur = () => {
     setShowSuc(false);
   };
-  const handleSubmit = (e) => {
-    if (done) {
-      console.log("thank you");
-    } else {
-      e.preventDefault();
-    }
-    // e.preventDefault();
-    if (fiName.current.value === "") {
-      setShowErrorMsg(
-        setTimeout(() => {
-          setErrorMsg("Please fill out the field");
-          focus.current.classList.remove("hidden");
-          focus.current.classList.add("visible");
-        }, 500)
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "https://konect-auth-api.herokuapp.com/users/addVolunteer",
+        {
+          firstName,
+          lastName,
+          phoneNumber,
+          email,
+          address,
+          gender,
+          postalCode,
+          reason,
+        }
       );
-    } else {
-      setDone(true);
-      setShowSuc(true);
-      console.log("done");
+      console.log(response.data);
+      // setIsAuth(true);
+      // navigate("/");
+      // document.documentElement.scrollTop = 0;
+
+      // console.log('ki')
+    } catch (err) {
+      console.log(err);
+      // if (err.response.data === undefined) {
+      //   setErr(err.message);
+      // } else {
+      //   setErr(err.response.data);
+      // }
+      // setBool(true);
     }
+    // axios
+    //   .post("https://konect-auth-api.herokuapp.com/users/addVolunteer", {
+    //     firstName,
+    //     lastName,
+    //     phoneNumber,
+    //     email,
+    //     address,
+    //     gender,
+    //     postalCode,
+    //     reason,
+    //   })
+    //   .then((res) => {
+    //     if (fiName.current.value === "") {
+    //       setShowErrorMsg(
+    //         setTimeout(() => {
+    //           setErrorMsg("Please fill out the field");
+    //           setFocus(false);
+    //         }, 500)
+    //       );
+    //     } else {
+    //       setShowSuc(true);
+    //       console.log("done");
+    //       console.log(res)
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
   };
   setTimeout(() => {
-    focus.current.classList.remove("visible");
-    focus.current.classList.add("hidden");
+    setFocus(true);
   }, 2000);
 
   return (
@@ -52,12 +100,6 @@ const Volunteer = () => {
       <div className="border-2 w-[400px] sm:w-[500px] md:w-[600px] lg:w-[800px] mx-auto p-8">
         <form
           onSubmit={(e) => handleSubmit(e)}
-          method={`${done ? "POST" : ""}`}
-          action={`${
-            done
-              ? "https://getform.io/f/7c0179c6-6abd-4620-b8cd-7b79145a1801"
-              : ""
-          }`}
           className="flex flex-col justify-between w-full"
         >
           <div className="flex flex-col sm:flex-row w-full sm:mb-3">
@@ -66,6 +108,8 @@ const Volunteer = () => {
                 First Name
               </label>
               <input
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 ref={fiName}
                 name="firstname"
                 id="firstname"
@@ -78,6 +122,8 @@ const Volunteer = () => {
                 Last Name
               </label>
               <input
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 id="lastname"
                 name="lastname"
                 placeholder="Your Last Name"
@@ -92,9 +138,12 @@ const Volunteer = () => {
                 Phone Number
               </label>
               <input
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 ref={fiName}
                 name="firstname"
                 id="phone"
+                type="number"
                 placeholder="+234 --- ---"
                 className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
               />
@@ -104,7 +153,10 @@ const Volunteer = () => {
                 Email
               </label>
               <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
+                type="email"
                 name="lastname"
                 placeholder="e.g.cymplyayo@gmail.com"
                 className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
@@ -117,7 +169,10 @@ const Volunteer = () => {
               Street Address
             </label>
             <input
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               id="street"
+              type="number"
               name="subject"
               placeholder="e.g.12b block Manchester"
               className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
@@ -130,6 +185,8 @@ const Volunteer = () => {
                 Gender
               </label>
               <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
                 id="select"
                 className="bg-[#EEEEF6] h-10 p-2 text-[rgba(0,0,0,0.4)]"
               >
@@ -144,8 +201,11 @@ const Volunteer = () => {
                 Postal Code
               </label>
               <input
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value)}
                 id="postal"
                 name="postalcode"
+                type="number"
                 placeholder="e.g.1x9x5x7"
                 className="h-10 p-2 text-[rgba(0,0,0,0.4)] bg-[#EEEEF6]"
                 ref={fiName}
@@ -165,13 +225,22 @@ const Volunteer = () => {
             />
           </div>
           <div onClick={handleSubmit}>
-            <CustomButton>Submit</CustomButton>
+            <CustomButton
+              bg="#1B1A42"
+              isBool={false}
+              pad="2px 16px"
+              text="white"
+            >
+              Submit
+            </CustomButton>
           </div>
         </form>
       </div>
       <div
         ref={focus}
-        className="fixed bottom-10 left-[50%] bg-[#1B1A42] text-white hidden  p-3 rounded-full"
+        className={`${
+          focus1 ? "hidden" : "block"
+        } fixed bottom-10 left-[50%] bg-[#1B1A42] text-white  p-3 rounded-full`}
       >
         {errMsg}
       </div>

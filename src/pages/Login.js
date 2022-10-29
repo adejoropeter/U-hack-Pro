@@ -88,7 +88,7 @@ const Login = () => {
               id="email"
               name="lastname"
               placeholder="Your Last Name"
-              className="h-10 p-2 w-full bg-[#EEEEF6]"
+              className="h-14 p-2 w-full bg-[#EEEEF6]"
               // ref={fiName}
             />
           </div>
@@ -106,7 +106,7 @@ const Login = () => {
                 name="lastname"
                 placeholder="Enter Password"
                 autoComplete="false"
-                className="h-10 p-2 w-full pr-10  bg-[#EEEEF6]"
+                className="h-14 p-2 w-full pr-10  bg-[#EEEEF6]"
                 // ref={fiName}
               />{" "}
               <div className="absolute top-4 right-4 " onClick={handleClick}>
@@ -118,9 +118,10 @@ const Login = () => {
             <CustomButton
               width={"100%"}
               isBool="true"
-              teSize="20px"
+              teSize="30px"
               text="white"
               bg="#1B1A42"
+              pad="20px 0px"
             >
               Log In
             </CustomButton>

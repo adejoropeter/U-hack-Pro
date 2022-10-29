@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     case "searchedRes":
       return { ...state, SearchedRes: action.payload };
     case "searchedResDon":
-      return { ...state, SearchedResDon: [action.payload] };
+      return { ...state, SearchedResDon: action.payload };
     case "STORE_INPUTVAL":
       return { ...state, StoreValue: action.payload };
     case "STORE_INPUTVAL_Don":

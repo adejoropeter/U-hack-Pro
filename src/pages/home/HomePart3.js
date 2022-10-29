@@ -24,7 +24,7 @@ const HomePart3 = () => {
           only create verified donation requests.
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row  gap-6 items-center sm:justify-between p-4 ">
+      <div className="flex flex-col sm:flex-row  gap-6 items-center sm:justify-between lg:justify-center p-4 ">
         <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/happy-children.png"

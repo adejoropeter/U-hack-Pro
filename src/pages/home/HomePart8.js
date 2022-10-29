@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import CustomButton from "../../components/CustomButton";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -8,9 +8,28 @@ const HomePart8 = () => {
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
   const [message, setMessage] = useState("");
+  const [focus1, setFocus] = useState("");
+  const [showSuc, setShowSuc] = useState(false);
+  const [showErrMsg, setShowErrorMsg] = useState(null);
+  const [errMsg, setErrorMsg] = useState("");
+  const fiName=useRef('')
   const handleSubmit = () => {
-
+    if (fiName.current.value === "") {
+      setShowErrorMsg(
+        setTimeout(() => {
+       setFocus(false)
+       setErrorMsg("Please fill out the field");
+        }, 500)
+      );
+    } else {
+      setShowSuc(true);
+      console.log("done");
+    }
   };
+  setTimeout(() => {
+    setFocus(true)
+   
+  }, 2000);
   return (
     <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
       <div className="w-full md:w-1/2 ">
@@ -28,15 +47,11 @@ const HomePart8 = () => {
             ad minim veniam,{" "}
           </p>
         </div>
-        <form
-          className="w-full "
-          method="POST"
-          
-        >
+        <form className="w-full " method="POST">
           <div className=" mb-4 flex gap-2 flex-col sm:flex-row mr-4 w-full sm:w-full">
             <input
               onChange={(e) => setFullName(e.target.value)}
-              // ref={fiName}
+              ref={fiName}
               value={fullName}
               name="full name"
               placeholder="Full Name"
@@ -45,7 +60,7 @@ const HomePart8 = () => {
             <input
               value={phoneNum}
               onChange={(e) => setPhoneNum(e.target.value)}
-              // ref={fiName}
+              ref={fiName}
               type="number"
               name="phone number"
               placeholder="Phone Number"
@@ -56,14 +71,14 @@ const HomePart8 = () => {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              // ref={fiName}
+              ref={fiName}
               name="email address"
               placeholder="Email Address"
               className="h-10 p-2 w-full sm:w-1/2 text-[rgba(0,0,0,0.4)] bg-[#DBDAF1] text-sm"
             />
             <input
               onChange={(e) => setLocation(e.target.value)}
-              // ref={fiName}
+              ref={fiName}
               value={location}
               name="location"
               placeholder="Location"
@@ -78,12 +93,20 @@ const HomePart8 = () => {
               name="message"
               placeholder="Tell us about yourself and why you want to join us"
               className="resize-none h-[232px] p-2 w-full text-sm text-[rgba(0,0,0,0.4)] bg-[#DBDAF1]"
-              // ref={fiName}
+              ref={fiName}
             />
           </div>
           <CustomButton pad="0 15px" isBool={true} bg="#1B1A42" text="white">
             Volunteer
           </CustomButton>
+          <div
+            // ref={focus}
+            className={`${
+              focus1 ? "hidden" : "block"
+            } fixed bottom-10 left-[50%] bg-[#1B1A42] text-white  p-3 rounded-full`}
+          >
+            {errMsg}
+          </div>
         </form>
       </div>
     </div>

@@ -83,7 +83,7 @@ const Navbar = () => {
         <div className="hidden sm:flex sm:gap-6">
           <button
             onClick={() => navigate("login")}
-            className=" text-[#1b1a42] px-[6px]  md:text-2xl  md:px-3   py-1 "
+            className=" text-[#1b1a42] px-[6px]  md:text-2xl  md:px-3   py-1 h-fit"
           >
             Login
           </button>
@@ -102,7 +102,7 @@ const Navbar = () => {
         )}
       </div>
       {nav ? (
-        <div className="sm:hidden absolute w-screen h-screen top-0 right-0 bg-[#EEEEF6] z-10">
+        <div className="sm:hidden absolute w-screen  h-screen top-0 right-0 bg-[#EEEEF6] z-10">
           <div
             onClick={handleClick}
             className="flex justify-between items-center p-10"

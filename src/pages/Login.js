@@ -65,12 +65,12 @@ const Login = () => {
     //   });
   };
   return (
-    <div className="w-screen flex justify-center items-center bg-white h-screen  text-black">
+    <div className=" flex justify-center items-center bg-white h-screen  text-black">
       <div className="border w-[500px] p-10 sm:rounded-xl">
         <div
           className={`${
             bool
-              ? " flex justify-center items-center bg-[#1B1A42] p-3 text-white rounded-full"
+              ? " flex  justify-center items-center bg-[#1B1A42] p-3 text-white rounded-full"
               : "hidden"
           }`}
         >

@@ -19,9 +19,8 @@ const Ngo = () => {
     return a;
   });
   return (
-    <div className="sm:px-24 py-10  px-6 text-sm md:text-lg">
+    <div className="sm:px-24 py-10   px-6 text-sm md:text-lg overflow-hidden lg:max-w-screen-2xl lg:mx-auto flex-grow ">
       <Donation1 />
-
       <div className="my-10">
         <NavLink
           to="all"
@@ -31,6 +30,7 @@ const Ngo = () => {
               : "text-[rgba(0,0,0,0.5)] p-3 md:p-4 ";
           }}
         >
+          
           All({all?.length})
         </NavLink>
         <NavLink

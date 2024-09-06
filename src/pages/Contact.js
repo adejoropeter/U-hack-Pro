@@ -10,7 +10,7 @@ const Contact = () => {
     navigate("/ngo/donate");
   };
   return (
-    <div className="w-full min-h-screen bg-[#EEEEF6] pt-12">
+    <div className="w-full min-h-screen bg-[#EEEEF6] pt-12 overflow-hidden lg:max-w-screen-2xl lg:mx-auto">
       <div className="w-fit h-fit p-4 mx-auto mb-8">
         <p className="font-normal text-4xl text-center mb-4">Need Help&#x3F;</p>
         <p className="text-[rgba(0,0,0,0.6)] text-sm max-w-sm text-center font-sans">

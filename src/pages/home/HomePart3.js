@@ -13,7 +13,7 @@ const HomePart3 = () => {
     console.log(isAuth);
   };
   return (
-    <div>
+    <>
       <div className="flex w-fit mx-auto  flex-col sm:pl-10 mb-10">
         <h2 className="text-4xl font-normal mb-6 text-[#1B1A42] text-center">
           Lend a helping hand
@@ -25,10 +25,10 @@ const HomePart3 = () => {
         </p>
       </div>
       <div className="flex flex-col sm:flex-row  gap-6 items-center sm:justify-between lg:justify-center p-4 ">
-        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+        <div className=" h-[400px] sm:w-[350px]  lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/happy-children.png"
-            className="w-full h-42 md:h-56 sm:h-full object-cover"
+            className="w-full flex-1 h-42 md:h-56 sm:h-full object-cover"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">Feed The Kids NG</h2>
@@ -43,17 +43,16 @@ const HomePart3 = () => {
                 bg="#1B1A42"
                 text="white"
                 spacing="auto"
-                isBool={true}
-              >
+                isBool={true}>
                 View Donations
               </CustomButton>
             </div>
           </div>
         </div>
-        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+        <div className="w-[354p] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/rounded-hands.png"
-            className="w-full h-42 object-cover sm:h-full md:h-56"
+            className="w-full flex-1 h-42 object-cover sm:h-full md:h-56"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">Spreading Love NG</h2>
@@ -68,17 +67,16 @@ const HomePart3 = () => {
                 bg="#1B1A42"
                 text="white"
                 spacing="auto"
-                isBool={true}
-              >
+                isBool={true}>
                 View Donations
               </CustomButton>
             </div>
           </div>
         </div>
-        <div className="w-[354px] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
+        <div className="w-[354p  ] h-[400px] sm:w-[350px] lg:w-[330px] flex flex-col border-2 rounded-[24px] justify-between items-center overflow-hidden shadow-xl bg-white">
           <img
             src="/assets/flooded-buildings.png"
-            className="w-full h-42 object-cover sm:h-full md:h-56"
+            className="w-full flex-1 h-42 object-cover sm:h-full md:h-56"
           />
           <div className="w-full p-6">
             <h2 className="text-[#1B1A42] mb-4">
@@ -95,8 +93,7 @@ const HomePart3 = () => {
                 bg="#1B1A42"
                 text="white"
                 spacing="auto"
-                isBool={true}
-              >
+                isBool={true}>
                 View Donations
               </CustomButton>
             </div>
@@ -112,12 +109,11 @@ const HomePart3 = () => {
           text="#1B1A42"
           brWid="1px"
           spacing="auto"
-          brCol="#1B1A42"
-        >
+          brCol="#1B1A42">
           View All NGOs
         </CustomButton>
       </div>
-    </div>
+    </>
   );
 };
 

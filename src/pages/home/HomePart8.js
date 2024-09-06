@@ -38,7 +38,7 @@ const HomePart8 = () => {
     setFocus(true);
   }, 2000);
   return (
-    <div className="w-screen flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-10">
+    <div className="w-full flex gap-4 py-10  flex-col-reverse  md:flex-row md:items-center px-0">
       <div className="w-full md:w-1/2 ">
         <img src="/assets/donation-box.png" />
       </div>
@@ -55,14 +55,14 @@ const HomePart8 = () => {
           </p>
         </div>
         <form className="w-full " method="POST">
-          <div className=" mb-4 flex gap-2 flex-col sm:flex-row mr-4 w-full sm:w-full">
+          <div className=" mb-4 flex gap-2 flex-col sm:flex-row mr-4 px-4 max-w-full w-full sm:w-full">
             <input
               onChange={(e) => setFullName(e.target.value)}
               ref={fiName}
               value={fullName}
               name="full name"
               placeholder="Full Name"
-              className="h-10 p-2 w-full sm:w-1/2 text-[rgba(0,0,0,0.4)] bg-[#DBDAF1] text-sm"
+              className="h-10 p-2  w-full sm:w-1/2 text-[rgba(0,0,0,0.4)] bg-[#DBDAF1] text-sm"
             />
             <input
               value={phoneNum}
@@ -74,7 +74,7 @@ const HomePart8 = () => {
               className="h-10 p-2 w-full sm:w-1/2 text-[rgba(0,0,0,0.4)] bg-[#DBDAF1] text-sm"
             />
           </div>
-          <div className=" mb-4 gap-2 flex flex-col sm:flex-row mr-4 w-full sm:w-full">
+          <div className=" mb-4 gap-2 flex max-w-full px-4 flex-col sm:flex-row mr-4 w-full sm:w-full">
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -92,7 +92,7 @@ const HomePart8 = () => {
               className="h-10 p-2 w-full sm:w-1/2 text-[rgba(0,0,0,0.4)] bg-[#DBDAF1] text-sm"
             />
           </div>
-          <div className="flex flex-col mb-4 w-full">
+          <div className="flex flex-col mb-4 max-w-full w-full px-4">
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}

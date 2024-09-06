@@ -19,10 +19,10 @@ const CompanyPart7 = () => {
   };
 
   return (
-    <div className="px-24  sm:px-20 py-10">
+    <div className="  sm:px-20 py-10 w-full">
       <h1 className="text-xl font-normal mb-10">Our Latest Articles</h1>
-      <div class="flex flex-col sm:flex-row gap-6 items-center sm:justify-between">
-        <div className="flex flex-col w-[300px] rounded-lg bg-white shadow-lg">
+      <div className="flex w-full flex-col sm:flex-row gap-6 items-center sm:justify-between">
+        <div className="flex flex-col sm:w-[300px] w-full rounded-lg bg-white shadow-lg">
           <img
             className="rounded-t-2xl md:h-36 object-cover w-full"
             src="/assets/poverty.png"
@@ -49,7 +49,7 @@ const CompanyPart7 = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-[300px] rounded-lg bg-white shadow-lg">
+        <div className="flex flex-col sm:w-[300px] rounded-lg bg-white shadow-lg">
           <img
             className="  rounded-t-2xl md:h-36 object-cover w-full"
             src="/assets/water.png"
@@ -77,7 +77,7 @@ const CompanyPart7 = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-[300px] rounded-lg  bg-white shadow-lg">
+        <div className="flex flex-col sm:w-[300px] rounded-lg  bg-white shadow-lg">
           <img
             className="  rounded-t-2xl md:h-36 object-cover w-full"
             src="/assets/children-playing.png"

@@ -12,7 +12,7 @@ const Blog2 = () => {
     
       }
   return (
-    <div className="w-full min-h-screen bg-[] pt-12 px-10 py-10">
+    <div className="w-full min-h-screen bg-[] pt-12 px-10 py-10   overflow-hidden lg:max-w-screen-2xl lg:mx-auto flex-grow">
       <div className="flex flex-col items-center ">
         <p className="text-sm italic text-center mb-6">
           Published 5th June, 2022
@@ -101,9 +101,9 @@ const Blog2 = () => {
       </div>
       <div>
         <p className="mb-4 text-2xl font-normal text-center sm:text-left">Next Up</p>
-        <div className="mb-10 flex overflow-hidden h-fit flex-row w-full rounded-lg bg-white shadow-lg border border-gray-400">
+        <div className="mb-10 flex flex-col sm:flex-row  overflow-hidden h-fit  w-full rounded-lg bg-white shadow-lg border border-gray-400">
           <img
-            className=" w-[200px]  md:h-auto object-cover md:w-72 rounded-t-lg md:rounded-none md:rounded-l-lg"
+            className=" w-full sm:w-[200px]  md:h-auto object-cover md:w-72 rounded-t-lg md:rounded-none md:rounded-l-lg"
             src="/assets/children-playing2.png"
             alt=""
           />

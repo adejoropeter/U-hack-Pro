@@ -3,10 +3,10 @@ import React from "react";
 const HomePart6 = () => {
   return (
     <>
-      <div className="border-2 border-black w-12 rounded-full overflow-hidden absolute bottom-[45%] right-[50%]">
-        <img src="/assets/aTenagerAndAbabyBoy.png" className="w-12" />
+      <div className="border-2  border-black w-12 rounded-full overflow-hidden absolute  sm:bottom-[45%] right-[50%]">
+        <img src="/assets/aTenagerAndAbabyBoy.png" className="w-full h-full object-cover" />
       </div>
-      <div className="">
+      <div className="h-fit">
         <p className="mb-4 text-center ">
           Nigeria has a <span className="text-[#1B1A42]">15%</span> poverty rate, making it
           one of the poorest countries.

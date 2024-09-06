@@ -25,7 +25,7 @@ const Company = () => {
   // console.log(currentIndex+2);
   // console.log(items[nextIndex])
   return (
-    <div className="w-full min-h-screen bg-[] pt-12 px-10">
+    <div className="w-screen min-h-screen bg-[] pt-12 px-10 overflow-hidden lg:max-w-screen-2xl lg:mx-auto">
       <CompanyPart1 />
       <CompanyPart2 />
       <CompanyPart3 />

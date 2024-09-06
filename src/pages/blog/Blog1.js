@@ -10,7 +10,7 @@ const Blog1 = () => {
     document.documentElement.scrollTop = 0;
   };
   return (
-    <div className="w-full min-h-screen bg-[] pt-12 px-10 py-10">
+    <div className="w-full min-h-screen bg-[] pt-12 px-10 py-10 overflow-hidden lg:max-w-screen-2xl lg:mx-auto ">
       <div className="flex flex-col items-center ">
         <p className="text-sm italic text-center mb-6">
           Published 5th June, 2022

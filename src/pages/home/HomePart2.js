@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 
 const HomePart2 = () => {
   return (
-    <div>
+    <>
       <div className="flex w-full  flex-col items-center md:items-stretch lg:pl-40 mb-10">
         <div className="flex items-center  sm:">
           <p className="hidden md:block w-10 h-[2px] bg-white mr-4"></p>
@@ -46,7 +46,7 @@ const HomePart2 = () => {
       </CustomButton>
       </div>
      
-    </div>
+    </>
   );
 };
 

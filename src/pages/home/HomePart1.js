@@ -10,12 +10,12 @@ const HomePart1 = () => {
 
   }
   return (
-    <div className="flex flex-col sm:flex-row w-screen h-fit items-center px-6 md:px-10 py-10 pb-20 gap-4 ">
-      <div className=" w-full sm:w-1/2 flex flex-col justify-between h-full">
-        <h2 className="text-4xl mb-6  lg:text-5xl  text-[#1B1A42] leading-tight ">
+    <div className="flex flex-col sm:flex-row w-screen   h-fit items-center px-6 md:px-10 py-10 pb-20 gap-10 ">
+      <div className=" w-full sm:w-1/2 flex flex-col  justify-between h-full">
+        <h2 className="text-4xl lg:text-6xl mb-6 leading-10   text-[#1B1A42] d ">
           Donate, make a difference.
         </h2>
-        <p className="text-sm max-w-md mb-6">
+        <p className=" text-lg max-w-md mb-6">
           Thousands of NGOs are working towards making the world a better place.
           So many people are willing and able to help, but we really need your
           help.

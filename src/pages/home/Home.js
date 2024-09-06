@@ -11,14 +11,13 @@ import HomePart7 from "./HomePart7";
 import HomePart8 from "./HomePart8";
 const Home = () => {
   return (
-    <div className="w-full min-h-screen bg-[#EEEEF6] pt-12">
-      <div className="flex flex-col sm:flex-row w-screen h-fit items-center px-6 md:px-24 py-4 gap-4">
+    <div className="bg-400 min-h-screen bg[#EEEEF6] py-10 w-full overflow-hidden lg:max-w-screen-2xl lg:mx-auto flex-grow">
+      <div className="flex flex-col sm:flex-row w-full h-fit items-center px6 md:px24 py-4 gap-4">
         <HomePart1 />
       </div>
       <div
-        className="h-fit w-screen content-div clip sm:clip pt-32 pb-12  px-10"
-        style={{ backgroundImage: `url(/assets/photo.svg)` }}
-      >
+        className="h-fit w-full content-div clip sm:clip pt-32 pb-12  px-10"
+        style={{ backgroundImage: `url(/assets/photo.svg)` }}>
         <HomePart2 />
       </div>
       <div className="h-fit w-screen pt-10 px-10">
@@ -32,14 +31,12 @@ const Home = () => {
       </div>
       <div
         className="h-[500px] w-screen md:px-20 px-6 home6-bg relative mt-16 flex justify-center items-end"
-        style={{ backgroundImage: `url(/assets/WorldMap.png)` }}
-      >
+        style={{ backgroundImage: `url(/assets/WorldMap.png)` }}>
         <HomePart6 />
       </div>
       <div
-        className="w-screen h-36 home7-img mt-20 py-6"
-        style={{ backgroundImage: 'url("/assets/Active-Doctors.png")' }}
-      >
+        className="w-screen h-fit home7-img mt-20 py-10 sm:py-6"
+        style={{ backgroundImage: 'url("/assets/Active-Doctors.png")' }}>
         <HomePart7 />
       </div>
       <div>

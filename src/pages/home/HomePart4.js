@@ -18,7 +18,7 @@ const HomePart4 = () => {
           alt="group-african-doctors-students-near-medical-university-outdoor"
         />
       </div>
-      <div className="w-[350px] bottom-0 absolute h-fit sm:absolute  sm:top-96 sm:right-60 rounded-2xl bg-white  sm:w-[400px] p-6 shadow-xl">
+      <div className="max-w-[350px] bottom-0 absolute h-fit sm:absolute  sm:top-96 sm:right-60 sm:rounded-2xl bg-white  sm:w-[400px] p-6 shadow-xl">
         <div>
           <h1
             className="text-2xl font-medium text-[#1B1A42] mb-4"
